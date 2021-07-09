@@ -42,7 +42,7 @@ function showSession(data, requestId, date) {
 
 // сравнить метрику в разных срезах
 function compareMetric(data) {
-  
+
 }
 
 function calcMetricByDate(data, page, name, date) {
@@ -77,4 +77,6 @@ fetch('https://shri.yandex/hw/stat/data?counterId=5197BB22-4B9B-4445-BDA0-90EDD9
   // showMetricByPeriod(data, 'send test', 'lcp', '2021-07-09', '2021-07-11');
 
   // showSession(data, '994640947355', '2021-07-09');
+
+  console.log(data);
 });
