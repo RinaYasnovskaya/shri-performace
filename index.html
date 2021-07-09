@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="send.js"></script>
+
+  <div class="main">
+    <div class="main__radio">
+        <input type="radio" id="first"
+        name="choice" value="1">
+        <label id="labelFirst" for="first">first</label>
+
+        <input type="radio" id="second"
+        name="choice" value="2">
+        <label id="labelSecond" for="second">second</label>
+
+        <input type="radio" id="third"
+        name="choice" value="3">
+        <label id="labelThird" for="third">third</label>
+    </div>
+    <div class="main__img">
+      <button id="buttonImg">Get a random img</button>
+      <div class="img"></div>
+    </div>
+    <div class="main__counter">
+      <p id="count">0</p>
+      <button id="plus">+</button>
+      <button id="minus">-</button>
+    </div>
+    <div class="main__cursor">
+      <button id="cursor">click</button>
+    </div>
+
+    <img class="big-img" src="assets/img.png">
+  </div>
+
+  <!-- <script src="collect.js"></script> -->
+  <script src="stats.js"></script>
+</body>
+</html>

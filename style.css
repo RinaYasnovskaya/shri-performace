@@ -1,0 +1,29 @@
+label{
+  font-size: 24px;
+}
+
+#labelFirst{
+  color: blueviolet;
+}
+
+#labelSecond{
+  color: teal;
+}
+
+#labelThird{
+  color: chartreuse;
+}
+
+.main > div {
+  margin: 29px;
+}
+
+.img{
+  margin-top: 20px;
+  height: 100px;
+}
+
+.big-img{
+  width: 700px;
+  height: 400px;
+}
