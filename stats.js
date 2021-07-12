@@ -76,7 +76,7 @@ fetch('https://shri.yandex/hw/stat/data?counterId=5197BB22-4B9B-4445-BDA0-90EDD9
 .then(result => {
   let data = prepareData(result);
 
-  // calcMetricByDate(data, 'send test', 'ttfb', '2021-07-09');
+  calcMetricByDate(data, 'send test', 'ttfb', '2021-07-09');
   calcMetricByDate(data, 'send test', 'colorText', '2021-07-09');
   calcMetricByDate(data, 'send test', 'numberImg', '2021-07-09');
   calcMetricByDate(data, 'send test', 'countClick', '2021-07-09');
