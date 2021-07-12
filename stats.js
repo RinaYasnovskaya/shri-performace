@@ -41,8 +41,23 @@ function showSession(data, requestId, date) {
 }
 
 // сравнить метрику в разных срезах
-function compareMetric(data) {
+function compareMetric(data, name) {
+  const desktop = data
+        .filter(el => el.additional.platform == 'desktop' && el.name == name)
+        .map(item => item.value);
+  const touch = data
+        .filter(el => el.additional.platform == 'touch' && el.name == name)
+        .map(item => item.value);
 
+  console.log('desktop: ' +
+  `p25=${quantile(desktop, 0.25)} p50=${quantile(desktop, 0.5)} ` +
+  `p75=${quantile(desktop, 0.75)} p90=${quantile(desktop, 0.95)} ` +
+  `hits=${desktop.length}`);
+
+  console.log('touch: ' +
+  `p25=${quantile(touch, 0.25)} p50=${quantile(touch, 0.5)} ` +
+  `p75=${quantile(touch, 0.75)} p90=${quantile(touch, 0.95)} ` +
+  `hits=${touch.length}`);
 }
 
 function calcMetricByDate(data, page, name, date) {
@@ -62,21 +77,21 @@ fetch('https://shri.yandex/hw/stat/data?counterId=5197BB22-4B9B-4445-BDA0-90EDD9
   let data = prepareData(result);
 
   // calcMetricByDate(data, 'send test', 'ttfb', '2021-07-09');
-  // calcMetricByDate(data, 'send test', 'colorText', '2021-07-09');
-  // calcMetricByDate(data, 'send test', 'numberImg', '2021-07-09');
-  // calcMetricByDate(data, 'send test', 'countClick', '2021-07-09');
-  // calcMetricByDate(data, 'send test', 'lcp', '2021-07-09');
+  calcMetricByDate(data, 'send test', 'colorText', '2021-07-09');
+  calcMetricByDate(data, 'send test', 'numberImg', '2021-07-09');
+  calcMetricByDate(data, 'send test', 'countClick', '2021-07-09');
+  calcMetricByDate(data, 'send test', 'lcp', '2021-07-09');
 
   // добавить свои сценарии, реализовать функции выше
   // ...
 
-  // showMetricByPeriod(data, 'send test', 'ttfb', '2021-07-09', '2021-07-11');
-  // showMetricByPeriod(data, 'send test', 'colorText', '2021-07-09', '2021-07-11');
-  // showMetricByPeriod(data, 'send test', 'numberImg', '2021-07-09', '2021-07-11');
-  // showMetricByPeriod(data, 'send test', 'countClick', '2021-07-09', '2021-07-11');
-  // showMetricByPeriod(data, 'send test', 'lcp', '2021-07-09', '2021-07-11');
+  showMetricByPeriod(data, 'send test', 'ttfb', '2021-07-09', '2021-07-11');
+  showMetricByPeriod(data, 'send test', 'colorText', '2021-07-09', '2021-07-11');
+  showMetricByPeriod(data, 'send test', 'numberImg', '2021-07-09', '2021-07-11');
+  showMetricByPeriod(data, 'send test', 'countClick', '2021-07-09', '2021-07-11');
+  showMetricByPeriod(data, 'send test', 'lcp', '2021-07-09', '2021-07-11');
 
-  // showSession(data, '994640947355', '2021-07-09');
+  showSession(data, '994640947355', '2021-07-09');
 
-  console.log(data);
+  compareMetric(data, 'ttfb');
 });
